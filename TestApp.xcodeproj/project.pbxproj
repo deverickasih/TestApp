@@ -14,6 +14,8 @@
 		8E468BB125F5B1AB00FCBF06 /* TestApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E468BAF25F5B1AB00FCBF06 /* TestApp.xcdatamodeld */; };
 		8E468BB325F5B1B000FCBF06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E468BB225F5B1B000FCBF06 /* Assets.xcassets */; };
 		8E468BB625F5B1B000FCBF06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E468BB425F5B1B000FCBF06 /* LaunchScreen.storyboard */; };
+		8E468BBE25F5B51F00FCBF06 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E468BBD25F5B51F00FCBF06 /* SignUpViewController.swift */; };
+		8E468BC025F5C0D700FCBF06 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E468BBF25F5C0D700FCBF06 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		8E468BB225F5B1B000FCBF06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E468BB525F5B1B000FCBF06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E468BB725F5B1B000FCBF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E468BBD25F5B51F00FCBF06 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8E468BBF25F5C0D700FCBF06 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				8E468BA625F5B1AB00FCBF06 /* AppDelegate.swift */,
 				8E468BA825F5B1AB00FCBF06 /* SceneDelegate.swift */,
 				8E468BAA25F5B1AB00FCBF06 /* ViewController.swift */,
+				8E468BBD25F5B51F00FCBF06 /* SignUpViewController.swift */,
+				8E468BBF25F5C0D700FCBF06 /* PageViewController.swift */,
 				8E468BAC25F5B1AB00FCBF06 /* Main.storyboard */,
 				8E468BB225F5B1B000FCBF06 /* Assets.xcassets */,
 				8E468BB425F5B1B000FCBF06 /* LaunchScreen.storyboard */,
@@ -143,8 +149,10 @@
 			files = (
 				8E468BAB25F5B1AB00FCBF06 /* ViewController.swift in Sources */,
 				8E468BB125F5B1AB00FCBF06 /* TestApp.xcdatamodeld in Sources */,
+				8E468BC025F5C0D700FCBF06 /* PageViewController.swift in Sources */,
 				8E468BA725F5B1AB00FCBF06 /* AppDelegate.swift in Sources */,
 				8E468BA925F5B1AB00FCBF06 /* SceneDelegate.swift in Sources */,
+				8E468BBE25F5B51F00FCBF06 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JFSK.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.JFSK.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
