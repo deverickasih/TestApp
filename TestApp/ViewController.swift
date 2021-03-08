@@ -134,6 +134,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     nvc.bottomPadding = bottomPadding
                     nvc.username = emailTF.text!
                     nvc.role = userTypeGet
+                    nvc.usersArray = usersArray
                     self.navigationController?.pushViewController(nvc, animated: true)
                 }else{
                     showMsg(title: "Login Error", msg: "Unidentified User Type", buttonString: "Understood")
