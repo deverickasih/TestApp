@@ -21,7 +21,7 @@ class SignUpViewController : UIViewController, UITextFieldDelegate, UIPickerView
     override func viewDidLoad() {
         
         view.backgroundColor = .white
-        self.title = "Sign Up"
+        self.title = "Sign Up Page"
         
         let screenWidth = UIScreen.main.bounds.width
         let screenHeight = UIScreen.main.bounds.height
@@ -34,7 +34,6 @@ class SignUpViewController : UIViewController, UITextFieldDelegate, UIPickerView
         emailTF.delegate = self
         emailTF.placeholder = "Set Username here"
         emailTF.textAlignment = .center
-        emailTF.isSecureTextEntry = true
         emailTF.setBorderColor(color: .lightGray)
         
         userTypeTF = UITextField(frame: CGRect(x: 20, y: emailTF.frame.origin.y + 50, width: objectWidth, height: 40))
@@ -48,6 +47,8 @@ class SignUpViewController : UIViewController, UITextFieldDelegate, UIPickerView
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        userTypeTF.inputView = pickerView
         
         pass1TF = UITextField(frame: CGRect(x: 20, y: userTypeTF.frame.origin.y + 50, width: objectWidth, height: 40))
         view.addSubview(pass1TF)
@@ -63,7 +64,6 @@ class SignUpViewController : UIViewController, UITextFieldDelegate, UIPickerView
         pass2TF.delegate = self
         pass2TF.placeholder = "Re-type Password here"
         pass2TF.textAlignment = .center
-        pass2TF.isSecureTextEntry = true
         pass2TF.setBorderColor(color: .lightGray)
         
         let newUserB = UIButton(frame: CGRect(x: 20, y: pass2TF.frame.origin.y + 60, width: objectWidth, height: 50))
@@ -90,7 +90,7 @@ class SignUpViewController : UIViewController, UITextFieldDelegate, UIPickerView
         if emailTF.text == "" {
             errorMsg += "\nUsername"
         }
-        if userTypeTF.textColor == UIColor.lightGray {
+        if userTypeTF.text == "" {
             errorMsg += "\nUser Type"
         }
         if pass1TF.text == "" {
@@ -116,6 +116,7 @@ class SignUpViewController : UIViewController, UITextFieldDelegate, UIPickerView
             return
         }
         
+        addNewEntry(username: emailTF.text!, password: pass1TF.text!, userType: userTypeTF.text!)
     }
     
     func addNewEntry(username: String, password: String, userType: String) {
@@ -126,9 +127,9 @@ class SignUpViewController : UIViewController, UITextFieldDelegate, UIPickerView
         let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        user.setValue(username, forKey: "username") // for title
-        user.setValue(userType, forKey: "usertype") // for description
-        user.setValue(password, forKey: "password") // for date in date & time format
+        user.setValue(username, forKey: "username") // for username
+        user.setValue(userType, forKey: "usertype") // for usertype
+        user.setValue(password, forKey: "password") // for password
         
         do {
             try managedContext.save()

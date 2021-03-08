@@ -22,7 +22,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.navigationController?.navigationBar.topItem?.title = "Reminders"
+        view.backgroundColor = .white
+        
+        self.navigationController?.navigationBar.topItem?.title = "Log In Page"
         
         let window = UIApplication.shared.windows[0]
         topPadding = window.safeAreaInsets.top
@@ -33,7 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let objectWidth = screenWidth - 40
         
-        emailTF = UITextField(frame: CGRect(x: 20, y: topPadding + 30, width: objectWidth, height: 40))
+        emailTF = UITextField(frame: CGRect(x: 20, y: topPadding + navBarHeight + 30, width: objectWidth, height: 40))
         view.addSubview(emailTF)
         
         emailTF.delegate = self
@@ -67,6 +69,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         signUpB.addTarget(self, action: #selector(toSignUpPage), for: .touchUpInside)
         
+        ///Touch Screen to release keyboards / pickerviews
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,7 +95,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @objc func loginNow() {
         
-        if emailTF.text != "" || passwordTF.text != "" {
+        if emailTF.text == "" || passwordTF.text == "" {
             showMsg(title: "Missing Fields", msg: "Please ensure all fields are filled.", buttonString: "Understood")
             return
         }
