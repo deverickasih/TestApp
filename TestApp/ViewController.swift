@@ -128,9 +128,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
                 let userTypeGet = objectData.value(forKey: "usertype") as! String
                 
-                if userTypeGet.lowercased() == "admin" {
-                    
-                }else if userTypeGet.lowercased() == "normal" {
+                if userTypeGet.lowercased() == "normal" || userTypeGet.lowercased() == "admin" {
                     let nvc = PageViewController()
                     nvc.topPadding = topPadding
                     nvc.bottomPadding = bottomPadding
